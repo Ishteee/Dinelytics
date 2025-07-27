@@ -5,7 +5,7 @@ services:
   # This is your main web application service.
   - type: web
     name: dinelytics
-    env: php
+    runtime: php # CORRECTED: The key is 'runtime', not 'env'.
     # This section tells Render how to build your project.
     buildCommand: |
       composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
@@ -21,18 +21,14 @@ services:
     # This section defines the environment variables your application needs.
     envVars:
       - key: APP_URL
-        # Render will automatically set this to your live URL.
-        fromService:
-          type: web
-          name: dinelytics
-          property: url
+        # CORRECTED: Use Render's built-in environment variable for the URL.
+        value: ${RENDER_EXTERNAL_URL}
       - key: APP_KEY
         # This will generate a secure, random key for your application.
         generateValue: true
       - key: DB_CONNECTION
         value: sqlite
-    # **CORRECTED** This is the crucial part for SQLite. The key is 'disk' (singular).
-    # The properties below are indented directly under 'disk', with no hyphen.
+    # This is the crucial part for SQLite.
     disk:
       name: sqlite-data
       mountPath: /var/www/html/database
