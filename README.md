@@ -12,11 +12,11 @@ _This project is deployed using [Laravel Cloud](https://cloud.laravel.com/)._
 ### Dashboard Overview
 <img src="https://github.com/user-attachments/assets/90f2d13e-0745-4abd-9224-c120c2a2ce80" alt="Dashboard Screenshot" width="100%" />
 
-### Orders Table with Filters
-<img src="https://github.com/user-attachments/assets/94b02329-76a5-40fa-bb92-f9b2e723d32d" alt="Orders Table Screenshot" width="100%" />
+### Dishes Table
+<img src="https://github.com/user-attachments/assets/94b02329-76a5-40fa-bb92-f9b2e723d32d" alt="Dishes Table Screenshot" width="100%" />
 
-### Revenue Trends Chart
-<img src="https://github.com/user-attachments/assets/fc193f07-fb92-4a3c-94d9-0f5d523fbda5" alt="Revenue Chart Screenshot" width="100%" />
+### Orders Table with Filters
+<img src="https://github.com/user-attachments/assets/fc193f07-fb92-4a3c-94d9-0f5d523fbda5" alt="Orders Table Screenshot" width="100%" />
 
 ---
 
