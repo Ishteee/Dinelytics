@@ -22,8 +22,8 @@ services:
         generateValue: true
       - key: DB_CONNECTION
         value: sqlite
-    disks:
+    disk:
       - name: sqlite-data
         mountPath: /var/www/html/database
-        sizeGB: 1 # 1GB is more than enough
+        sizeGB: 1
 
