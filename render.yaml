@@ -1,7 +1,12 @@
+# render.yaml
+# This file tells Render how to build and deploy your Laravel application.
+
 services:
+  # This is your main web application service.
   - type: web
     name: dinelytics
     env: php
+    # This section tells Render how to build your project.
     buildCommand: |
       composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
       php artisan key:generate --force
@@ -11,19 +16,25 @@ services:
       npm install
       npm run build
       php artisan migrate:fresh --seed --force
+    # This is the command to start your web server.
     startCommand: "php artisan serve --host 0.0.0.0 --port $PORT"
+    # This section defines the environment variables your application needs.
     envVars:
       - key: APP_URL
+        # Render will automatically set this to your live URL.
         fromService:
           type: web
           name: dinelytics
           property: url
       - key: APP_KEY
+        # This will generate a secure, random key for your application.
         generateValue: true
       - key: DB_CONNECTION
         value: sqlite
+    # **CORRECTED** This is the crucial part for SQLite. The key is 'disk' (singular).
+    # The properties below are indented directly under 'disk', with no hyphen.
     disk:
-      - name: sqlite-data
-        mountPath: /var/www/html/database
-        sizeGB: 1
+      name: sqlite-data
+      mountPath: /var/www/html/database
+      sizeGB: 1 # 1GB is more than enough
 
