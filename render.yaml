@@ -5,7 +5,7 @@ services:
   # This is your main web application service.
   - type: web
     name: dinelytics
-    runtime: php # CORRECTED: The key is 'runtime', not 'env'.
+    # The 'runtime: php' line has been removed to allow Render to auto-detect the environment.
     # This section tells Render how to build your project.
     buildCommand: |
       composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
@@ -21,7 +21,7 @@ services:
     # This section defines the environment variables your application needs.
     envVars:
       - key: APP_URL
-        # CORRECTED: Use Render's built-in environment variable for the URL.
+        # Use Render's built-in environment variable for the URL.
         value: ${RENDER_EXTERNAL_URL}
       - key: APP_KEY
         # This will generate a secure, random key for your application.
